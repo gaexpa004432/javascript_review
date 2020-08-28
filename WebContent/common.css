@@ -1,0 +1,80 @@
+@charset "UTF-8";
+@import urL('');
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.menuActive {
+	background-color : grey;
+	color : yellow;
+}
+
+.menu li {
+  float: left;
+}
+
+.menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  background-color: #111;
+}
+.search{
+	border : 1px solid green;
+}
+
+.search li{
+	display: inline-block;
+	font-family : "배스킨라빈스 B"
+}
+
+label{
+	width : 150px;
+	display: inline-block;
+}
+
+div input{
+	color: green;
+}
+
+.label {
+	font-family : "배스킨라빈스 B";
+	display : inline-block;
+	font-weight: bold;
+	width : 150px;
+}
+
+H3 {
+	font-family : "배스킨라빈스 B";
+}
+#table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table tr:nth-child(even){background-color: #f2f2f2;}
+
+#table tr:hover {background-color: #ddd;}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
