@@ -83,7 +83,8 @@ $("#dialog").dialog({
 			 var openDt = obj.movieInfoResult.movieInfo.openDt;
 			$("#dialog").empty();
 			$("#dialog").parent().children().eq(0).text(obj.movieInfoResult.movieInfo.movieNm);
-			$("#dialog").append($("<p>").text("감독 : "+director)).append($("<p>").text("주연 배우 : "+actor)).append($("<p>").text("상영 날짜 : " + openDt));
+			$("#dialog").append($("<p>").text("감독 : "+director)).append($("<p>").text("주연 배우 : "+actor))
+				.append($("<p>").text("상영 날짜 : " + openDt.substr(0,4)+"년 "+openDt.substr(4,2)+"월 " + openDt.substr(6,2)+"일"));
 			
 		$( "#dialog" ).dialog( "open" );
 			  
