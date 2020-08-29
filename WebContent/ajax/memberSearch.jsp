@@ -24,6 +24,7 @@ function loadDoc() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4) {
     	if( this.status == 200){
+    			console.log(this.responseText);
     	var obj = JSON.parse(this.responseText).boxOfficeResult.dailyBoxOfficeList;
       			console.log(obj);
       		for(o of obj){

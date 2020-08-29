@@ -27,6 +27,42 @@ span {display : inline-block;
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
 	//버튼 클릭 이벤트 작성
+	$(function(){
+		$("div div").on("click","button.info",function(){
+			var name = $(this).parents("div").children(0).eq(0).text();
+			$.getJSON("../ajax/server/" +name +".json",function(obj){
+				for(i in obj){
+					console.log(i);
+				}
+				$("#id").val(obj.id);
+				$("#pw").val(obj.pw);
+				if(obj.gender == "남"){
+				$("#man").prop("checked",true);					
+				}else{
+				$("#girl").prop("checked",true);
+				}
+				$("#job").val(obj.job).prop("selected",true);
+				$("#reason").val(obj.reason);
+				if(obj.mailyn == "Y"){
+					console.log($("input[name=mailyn]"));
+					$("input[name=mailyn]").prop("checked",true);
+				}else{
+					$("input[name=mailyn]").prop("checked",false);
+				}
+					});
+				});
+		
+			
+			$("#delete").on("click",function(){
+				if($("#id").val() == ""){
+					alert("선택된 값이 없습니다");
+					return false;
+				}
+				$("span:contains("+$("#id").val()+")").parent().remove();
+				$("#frm")[0].reset();
+			})
+			});
+	
 
 </script>
 </head>
@@ -36,17 +72,17 @@ span {display : inline-block;
 		<div>
 			<span>hong</span>
 			<span>홍길동</span>
-			<button type="button">선택</button>
+			<button class="info" type="button">선택</button>
 		</div>
 		<div>
 			<span>kim</span>
 			<span>김기자</span>
-			<button type="button">선택</button>
+			<button class="info" type="button">선택</button>
 		</div>
 		<div>
 			<span>choi</span>
 			<span>최기자</span>
-			<button type="button">선택</button>
+			<button class="info" type="button">선택</button>
 		</div>
 	</div>
 	<div class="col">
@@ -56,7 +92,7 @@ span {display : inline-block;
 				<button type="reset">초기화</button>
 				<button type="button">추가</button>
 				<button type="button">저장</button>
-				<button type="button">삭제</button>
+				<button type="button" id="delete">삭제</button>
 			</div>
 			<div>
 				<label for="id">아디</label>
@@ -68,8 +104,8 @@ span {display : inline-block;
 			</div>
 			<div>
 				<label for="gender">성별</label> 
-				<input type="radio" name="gender" value="남">남
-				<input type="radio" name="gender" value="여">여
+				<input type="radio" name="gender" value="남" id="man">남
+				<input type="radio" name="gender" value="여" id="girl">여
 			</div>
 			<div>
 				<label for="job">직업</label> 
