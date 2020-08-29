@@ -53,7 +53,7 @@
 <div id="msg" >
 알림팝업
 </div>
-
+<input id="date" type="date" onclick="console.log(date.value)">
 <div id="acor">
 	<h3>자바</h3>
 	<div>자바란 ..</div>

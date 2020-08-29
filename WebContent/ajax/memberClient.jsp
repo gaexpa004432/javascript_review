@@ -23,6 +23,7 @@ label {
 }
 span {display : inline-block;  
 	  width : 100px;}
+	  
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
@@ -61,6 +62,10 @@ span {display : inline-block;
 				$("span:contains("+$("#id").val()+")").parent().remove();
 				$("#frm")[0].reset();
 			})
+			
+			$("input").attr("readonly",true);
+			$("option").attr("disabled",true);
+			
 			});
 	
 

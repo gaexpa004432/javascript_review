@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,36 +7,39 @@
 <title>Insert title here</title>
 <style>
 table {
-    border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
-    border-top: 1px solid #ccc;
-    border-left: 3px solid #369;
-  margin : 20px 10px;
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+	border-left: 3px solid #369;
+	margin: 20px 10px;
 }
-table th {
-    width: 147px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    color: #153d73;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
 
+table th {
+	width: 147px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: #153d73;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
+
 table td {
-    width: 349px;
-    padding: 10px;
-    vertical-align: top;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+	width: 349px;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
+
 tr:hover {
-	background-color : lightgrey;
+	background-color: lightgrey;
 }
 </style>
- <link rel="stylesheet" href="../jquery-ui.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../jquery-ui.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../jquery-ui.js"></script>
 <script>
 $(function(){
@@ -51,16 +54,36 @@ $("#dialog").dialog({
 		 }
 	 }
 });
-	$("#btnList").on("click",function(){
-		if($("#name").val() == ""){
-			alert("일자를 입력하세요");
-			return false;
-		}
-  var url_add = $("#name").val();
+	$("#date").on("change",function(){
+var date = new Date();
+var month = (date.getMonth() + 1);
+var day = date.getDate();
+if (month < 10){
+	month = "0" + month; 
+}
+if(day < 10){
+	day = "0" + day; 
+}
+var current = "" + date.getFullYear()+"" + month+"" + day;
+
+//		if($("#name").val() == ""){
+//			alert("일자를 입력하세요");
+//			return false;
+//		}
+//  var url_add = $("#name").val();
+	var url_add = $("#date").val().replace(/-/gi,"");
+if(parseInt(current) < parseInt(url_add)){
+	alert("현재날짜나 이전날짜를 선택해 주세요");
+	console.log(parseInt(current.replace(/-/gi,"")));
+	console.log(parseInt(url_add));
+	$("#result").empty();
+	return false;
+}
+console.log(current);
    var url ="http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=430156241533f1d058c603178cc3ca0e&targetDt="+ url_add;
    // var url ="server/movie.json"
 	$.getJSON(url,function(obj){
-		console.log(obj);
+		$("#result").empty();
 		var list = obj.boxOfficeResult.dailyBoxOfficeList;
 		for(o of list){
 			
@@ -97,14 +120,14 @@ $("#dialog").dialog({
 <body>
 
 
-<button type="button" id="btnList">Change Content</button>
+	<!--<button type="button" id="btnList">Change Content</button>
 
 
 
-<input type="text" id="name" required>
-
-<table border="1" id="result"></table>
-<div id="dialog"> </div>
+  <input type="text" id="name" required> -->
+	<input type="date" id="date">
+	<table border="1" id="result"></table>
+	<div id="dialog"></div>
 
 </body>
 </html>
