@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="MemberInsertServ">
+<form method="post" action="MemberInsertServ">
 	<div>
-	<P><label for="id">아이디</label> : <INPUT type="text" id="id" name="id" size="20" value="" required></P>
+	<P><label for="id">아이디 (숫자만 가능)</label> : <INPUT type="text" id="id" name="id" size="20" value="" required></P>
 	<P><label for="password">비밀번호</label> : <INPUT type="password" name="pw" id="password" size="20"></P>
 	</div>
 	
@@ -28,13 +28,18 @@
 </SELECT>
 </div>
 <div>
-<TEXTAREA name="content" rows="5" cols="50">
+농구 <input type="checkbox" name="hobby" value="basket">
+축구<input type="checkbox" name="hobby" value="football">
+답장씹기<input type="checkbox" name="hobby" value="ignore">
+</div>
+<div>
+<TEXTAREA name="Motive" rows="5" cols="50">
 가입동기
 </TEXTAREA>
 </div>
 
 <div>
-<P>메일수신 여부<INPUT type="checkbox" name="mailYn" value="Y" checked></P>
+<P>메일수신 여부<INPUT type="checkbox" name="mail" value="Y" checked></P>
 </div>
 <div>
 <button type = "submit" >등록</button>&nbsp;&nbsp;

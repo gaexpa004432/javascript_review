@@ -7,7 +7,22 @@ public class MemberVO {
 	private String job;
 	private String mail;
 	private String Motive;
-	public MemberVO(int id, String pw, String gender, String job, String mail, String motive) {
+	private String hobby;
+	private String regdate;
+	
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+	public String getHobby() {
+		return hobby;
+	}
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+	public MemberVO(int id, String pw, String gender, String job, String mail, String motive, String hobby ,String regdate) {
 		
 		this.id = id;
 		this.pw = pw;
@@ -15,6 +30,8 @@ public class MemberVO {
 		this.job = job;
 		this.mail = mail;
 		this.Motive = motive;
+		this.hobby = hobby;
+		this.regdate = regdate;
 	}
 	public int getId() {
 		return id;
@@ -60,6 +77,9 @@ public class MemberVO {
 	public MemberVO(int id) {
 		
 		this.id = id;
+	}
+	public MemberVO() {
+		// TODO Auto-generated constructor stub
 	}
 	
 }

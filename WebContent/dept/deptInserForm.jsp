@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="dept/deptInserForm.jsp">부서등록</a>
-<a href="dept/DeptSelectAllServ">부서조회</a>
-<a href="member/MemberSelectServ">멤버조회</a>
-<a href="member/memberInsert.jsp">멤버등록</a>
+<%=request.getParameter("department_name") %>
+<form action="DeptInsertServ">
+	id<input name="department_id"><br>
+	name<input name="department_name"><br>
+	<button>register</button>
+</form>
 </body>
 </html>

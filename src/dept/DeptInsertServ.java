@@ -1,8 +1,6 @@
-package member;
+package dept;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * Servlet implementation class MemberSelectServ
+ * Servlet implementation class DeptInsertServ
  */
-@WebServlet("/member/MemberSelectServ")
-public class MemberSelectServ extends HttpServlet {
+@WebServlet("/dept/DeptInsertServ")
+public class DeptInsertServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberSelectServ() {
+    public DeptInsertServ() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,10 +28,22 @@ public class MemberSelectServ extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberDAO dao = new MemberDAO();
-		ArrayList<MemberVO> list =dao.select();
-		request.setAttribute("list",list);
-		request.getRequestDispatcher("memberSelectAll.jsp").forward(request, response);
+		DeptDAO dao = new DeptDAO();
+		DeptVO deptvo = new DeptVO(Integer.parseInt(request.getParameter("department_id")),request.getParameter("department_name"));
+		dao.insert(deptvo);
+//		response.setContentType("text/html; charset=UTF-8"); // 인코딩
+//		PrintWriter out = response.getWriter();
+//		out.print("<script>");
+//		out.print("alert('등처완')");
+//		out.print("</script>");
+		System.out.println("insert exe");
+		response.sendRedirect("DeptSelectAllServ");
+		
+//		request.getRequestDispatcher("deptSelect.jsp").forward(request, response);
+		
+		
+		
+		
 	}
 
 	/**

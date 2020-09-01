@@ -19,7 +19,9 @@ for( MemberVO member : list){ %>
 <td><%=member.getGender()%></td>
 <td><%=member.getJob()%></td>
 <td><%=member.getMail()%></td>
-<td><%=member.getMotive()%></td></tr>
+<td><%=member.getMotive()%></td>
+<td><%=member.getHobby()%></td>
+<td><%=member.getRegdate()%></td></tr>
 <%} %>
 </table>
 </body>
