@@ -35,16 +35,16 @@ public class BoardInsertServ extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		System.out.println("============map============");
-		Map<String,String[]> map = request.getParameterMap();
-		System.out.println(map);
-		System.out.println("no=" + map.get("no"));
-		
-		System.out.println("============names============");
-		Enumeration<String> pnames = request.getParameterNames();  // 파라미터 이름만 읽어오기 가능
-		while(pnames.hasMoreElements()) {
-			System.out.println(pnames.nextElement());
-		}
+//		System.out.println("============map============");
+//		Map<String,String[]> map = request.getParameterMap();
+//		System.out.println(map);
+//		System.out.println("no=" + map.get("no"));
+//		
+//		System.out.println("============names============");
+//		Enumeration<String> pnames = request.getParameterNames();  // 파라미터 이름만 읽어오기 가능
+//		while(pnames.hasMoreElements()) {
+//			System.out.println(pnames.nextElement());
+//		}
 		
 		// DB 등록 처리
 		BoardDAO dao = new BoardDAO();

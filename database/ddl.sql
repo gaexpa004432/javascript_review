@@ -1,11 +1,11 @@
 create table board (
-no  number primary key,--
-poster varchar2(20), --작성자 
-subject varchar2(100), --제목
-contents varchar2(2000), --내용
+no  number primary key,
+poster varchar2(20), 
+subject varchar2(100),
+contents varchar2(2000), 
 lastpost date,
-views number(5), --조회
-filename varchar2(50) --
+views number(5), 
+filename varchar2(50)
 );
 create table member(
 id number(10),

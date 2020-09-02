@@ -18,6 +18,13 @@ public class MemberDAO {
 	ArrayList<MemberVO> list = new ArrayList<MemberVO>();
 	Connection conn;
 	ResultSet rs = null;
+	static MemberDAO instance;
+	public static MemberDAO getInstance() {
+		if(instance==null)
+			instance=new MemberDAO();
+		return instance;
+	}
+	
 	public void insert(MemberVO memberVo) {
 		try {
 			conn = ConnectionManager.getConnnect();

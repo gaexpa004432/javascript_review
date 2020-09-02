@@ -3,6 +3,7 @@ package board;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,7 @@ public class BoardDAO {
 
 		try {
 			conn = ConnectionManager.getConnnect();
+			conn.setAutoCommit(false);
 			String sql = "select * from board"
 					+ " ORDER BY no"; // 컨+쉬+x 대문자, 컨+쉬+y 소문자 변환가능. 쿼리 엔터해서 쓸거면 앞에 공백 붙이기
 			pstmt = conn.prepareStatement(sql); // 미리 sql 구문이 준비가 되어야한다
@@ -68,6 +70,12 @@ public class BoardDAO {
 				list.add(board); // resultVo를 list에 담음
 			}
 		} catch (Exception e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		} finally {
 			ConnectionManager.close(rs, pstmt, conn);
