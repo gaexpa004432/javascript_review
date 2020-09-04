@@ -1,6 +1,7 @@
 <%@page import="member.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +9,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% MemberVO member = (MemberVO) session.getAttribute("login"); %>
+  <% // MemberVO member = (MemberVO) session.getAttribute("login"); %>
 <form method="post" action="MemberInsertServ">
 	<div>
-	<P><label for="id">아이디 (숫자만 가능)</label> : <INPUT type="text" id="id" name="id" size="20" value="<%=member.getId() %>" required></P>
-	<P><label for="password">비밀번호</label> : <INPUT type="password" name="pw" id="password" value="<%=member.getPw() %>" size="20"></P>
+	<P><label for="id">아이디 (숫자만 가능)</label> : <INPUT type="text" id="id" name="id" size="20" value="${login.id }" required></P>
+	<P><label for="password">비밀번호</label> : <INPUT type="password" name="pw" id="password" value="${login.pw }" size="20"></P>
 	</div>
 	
 <div>
-	<INPUT type="radio" name="gender" value="man" checked <%if("man".equals(member.getGender())){out.print("checked='checked'");}%>>남자&nbsp;
+	<INPUT type="radio" name="gender" value="man" checked <c:if test="${login.gender=='man'}">checked="checked"</c:if>>남자&nbsp;
+		
 	<INPUT type="radio" name="gender" value="woman" <%if("woman".equals(member.getGender())){out.print("checked='checked'");}%>>여자
 </div>
 	<label for="job">직업</label>
