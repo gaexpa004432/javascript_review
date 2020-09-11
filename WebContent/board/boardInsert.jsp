@@ -34,7 +34,7 @@ function inputCheck() {
 }
 </script>
 <body>
-<form method="post" name="frm" id="frm" action="boardInsert.do" onsubmit="return inputCheck()">
+<form method="post" name="frm" id="frm" action="boardInsert.do" onsubmit="return inputCheck()" enctype='multipart/form-data'>
 <h3 class="page_title">게시글 등록</h3>
 	<div class="regist">
 		<label for="poster">작성자</label>

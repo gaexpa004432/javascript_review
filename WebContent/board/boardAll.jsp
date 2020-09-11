@@ -13,7 +13,13 @@
 			<tbody><tr><td>하하</td><td>ㅁㄴㅇpsps</td><td>백승엽</td><td>2020-8-20</td><td>10</td><td></td></tr>
 			<tr><td>허허</td><td>ㅁㄴㅇpsps</td><td>백승승</td><td>2020-8-21</td><td>15</td><td></td></tr>
 			</tbody>
-	
+		<%-- 	<td>
+			 <c:if test="${not empty board.filename}">
+			 	<img src="../images/${board.filename }" style="width:50px">
+			 </c:if>
+			</td> --%>
+			
+			<%-- <a href="downLoad.do?filename=${board.filename }">${board.filename }</a> --%>
 	
 </table>
 </body>
